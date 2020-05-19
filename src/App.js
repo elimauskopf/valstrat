@@ -9,6 +9,7 @@ function App() {
 	<div className="flex-container">
 		<Agents /> 
 		<Map />
+		<Agents />
   		
 	</div>
   

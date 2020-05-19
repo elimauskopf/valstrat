@@ -2,6 +2,8 @@ import React from 'react';
 import split from './images/split.webp'
 import bind from './images/bind.jpg'
 import haven from './images/haven.jpg'
+import test from './images/720.jpg'
+import test2 from './images/test2.jpg'
 import './stylesheets/map.css';
 import CanvasDraw from 'react-canvas-draw'
 
@@ -9,7 +11,7 @@ export default class Map extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { 
-			map: split,
+			map: test2,
 			color: "#ffc600",
 			brushRadius: 5,
 			lazyRadius: 5
@@ -62,12 +64,11 @@ export default class Map extends React.Component {
 		return (
 			<div>
 				<div className='selector'> 
-					<label htmlFor="cars">Choose a Map: </label>
+					<label htmlFor="cars"> </label>
 
-					<select name="maps" onChange={this.handleSelect}>
-						<option value="">--Please choose an option--</option>
+					<select className='select-css' name="maps" onChange={this.handleSelect}>
+						<option value="">Split</option>
 						<option value="bind">Bind</option>
-						<option value="split">Split</option>
 						<option value="haven">Haven</option>
 					</select>
 				</div>
@@ -77,6 +78,8 @@ export default class Map extends React.Component {
 						imgSrc={this.state.map}
 						brushColor={this.state.color}
 						brushRadius={this.state.brushRadius}
+						canvasWidth={1015}
+						canvasHeight={827}
 					/>
 				</div>
 				<div className="buttons"> 

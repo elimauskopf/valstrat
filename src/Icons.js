@@ -11,7 +11,7 @@ export default function Agents(props) {
 	
 	const icons = props.iconOrder.map( (agent, idx)  => 
 		<Draggable nodeRef={nodeRef} key={idx} >
-				<img ref={nodeRef} draggable="false" src={agent} alt="breach"  style={{width: '50px', height: '50px' }}onClick={(e) => console.log(nodeRef)} />
+				<img ref={nodeRef} draggable="false" src={agent} alt="breach"  style={{width: '2.2em', height: '2.2em' }}onClick={(e) => console.log(nodeRef)} />
 		</Draggable> 
 	)
 

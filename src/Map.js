@@ -1,7 +1,7 @@
 import React from 'react';
-import split from './images/split.webp'
-import bind from './images/bind.jpg'
-import haven from './images/haven.jpg'
+import split from './images/SplitEmpty.png'
+import bind from './images/bindEmpty.png'
+import haven from './images/havenEmpty.png'
 import './stylesheets/map.css';
 import CanvasDraw from 'react-canvas-draw'
 
@@ -9,10 +9,12 @@ export default class Map extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { 
-			map: bind,
+			map: split,
 			color: "#ffc600",
 			brushRadius: 5,
-			lazyRadius: 5
+			lazyRadius: 5,
+			canvasWidth: 0,
+			canvasHeight: 0
 		}
 
 		this.handleSelect = this.handleSelect.bind(this)
@@ -36,6 +38,25 @@ export default class Map extends React.Component {
 		
 	}
 
+	componentWillMount(){
+		if(window.screen.width  <= 812) {
+			this.setState({
+				canvasHeight: 200,
+				canvasWidth: 200
+			})
+		} else if(window.screen.width  <= 1024) {
+			this.setState({
+				canvasHeight: 400,
+				canvasWidth: 400 
+			})
+		} else {
+			this.setState({
+				canvasHeight: 800,
+				canvasWidth: 800
+			})
+		}
+	}
+
 	colorChanger(e) {
 		if (e.target.className.includes("blue")) {
 			console.log("here1")
@@ -49,10 +70,12 @@ export default class Map extends React.Component {
 	}
 
 	clearBoard() {
+		console.log(window.screen.height)
 		this.Canvas.clear()
 	}
 
 	drawImage() {
+		this.Canvas.clear()
 		this.Canvas.drawImage()
 	}
 
@@ -80,8 +103,8 @@ export default class Map extends React.Component {
 						imgSrc={this.state.map}
 						brushColor={this.state.color}
 						brushRadius={this.state.brushRadius}
-						canvasWidth={1015}
-						canvasHeight={827}
+						canvasWidth={this.state.canvasWidth}
+						canvasHeight={this.state.canvasHeight}
 					/>
 				</div>
 				<div className="buttons"> 

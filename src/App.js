@@ -1,16 +1,44 @@
 import React from 'react';
 import Map from './Map'
-import Agents from './Agents'
+import Icons from './Icons'
 import './stylesheets/index.css'
+import brim from './images/Brimm.png';
+import jett from './images/Jett.png';
+import cypher from './images/Cypher.png';
+import omen from './images/Omen.png';
+import phoenix from './images/Phoenix.png';
+import sova from './images/Sova.png';
+import sage from './images/Sage.png';
+import viper from './images/Viper.png';
+import spike from './images/spikeIcon.png'
+
 
 
 function App() {
+
+	const agentProps = {
+		iconOrder: [
+			brim, brim, jett, jett,
+			cypher, cypher, omen, omen,
+			phoenix, phoenix, sova, sova,
+			sage, sage, viper, viper
+		],
+		name: "Agents"
+	}
+
+	const iconProps = {
+		
+		iconOrder: [
+			spike
+		],
+		name: "Icons"
+	}
+
   return (
 	<div className="flex-container">
-		<Agents /> 
+		<Icons {...agentProps} /> 
 		<Map />
-		<Agents />
-  		
+		<Icons {...iconProps}/>	
 	</div>
   
   );

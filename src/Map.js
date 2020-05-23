@@ -52,8 +52,8 @@ export default class Map extends React.Component {
 			})
 		} else if (window.screen.height <= 1080) {
 			this.setState({
-				canvasHeight: 750,
-				canvasWidth: 750
+				canvasHeight: 850,
+				canvasWidth: 860
 			})
 		} else {
 			this.setState({
@@ -65,11 +65,9 @@ export default class Map extends React.Component {
 
 	colorChanger(e) {
 		if (e.target.className.includes("blue")) {
-			console.log("here1")
 			this.setState({color: "#0000ff"})
-		} else if (e.target.className.includes("red")) {
-			console.log("here2")
-			this.setState({color: "#ff0000"})
+		} else if (e.target.className.includes("green")) {
+			this.setState({color: "#008000"})
 		} else if (e.target.className.includes("yellow")) {
 			this.setState({color: "#ffff00"})
 		}
@@ -115,10 +113,10 @@ export default class Map extends React.Component {
 				</div>
 				<div className="buttons"> 
 						<button className="button blue" onClick={this.colorChanger}></button>
-						<button className="button red" onClick={this.colorChanger}></button>
+						<button className="button green" onClick={this.colorChanger}></button>
 						<button className="button yellow" onClick={this.colorChanger}></button>
-						<button className="reset-button" onClick={this.clearBoard}> clear </button>
-						<button className="reset-button" onClick={this.undoLast}> undo </button>
+						<button className="reset-button" onClick={this.clearBoard}> Clear </button>
+						<button className="reset-button" onClick={this.undoLast}> Undo </button>
 					</div>
 			</div>
 

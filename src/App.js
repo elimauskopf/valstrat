@@ -11,7 +11,7 @@ import sova from './images/Sova.png';
 import sage from './images/Sage.png';
 import viper from './images/Viper.png';
 import spike from './images/spikeIcon.png'
-
+import smoke from './images/Valorant_Smoke.png'
 
 
 function App() {
@@ -23,13 +23,17 @@ function App() {
 			phoenix, phoenix, sova, sova,
 			sage, sage, viper, viper
 		],
-		name: "Agents"
+		name: "Agents",
+		agents: true
 	}
 
 	const iconProps = {
 		
 		iconOrder: [
-			spike
+			spike, smoke,
+			smoke, smoke, 
+			smoke, smoke,
+			smoke, smoke
 		],
 		name: "Icons"
 	}

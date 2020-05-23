@@ -70,6 +70,9 @@ export default class Map extends React.Component {
 			this.setState({color: "#008000"})
 		} else if (e.target.className.includes("yellow")) {
 			this.setState({color: "#ffff00"})
+		} else if (e.target.className.includes("purple")) {
+			console.log("hj")
+			this.setState({color: "#800080"})
 		}
 	}
 
@@ -115,6 +118,7 @@ export default class Map extends React.Component {
 						<button className="button blue" onClick={this.colorChanger}></button>
 						<button className="button green" onClick={this.colorChanger}></button>
 						<button className="button yellow" onClick={this.colorChanger}></button>
+						<button className="button purple" onClick={this.colorChanger}></button>
 						<button className="reset-button" onClick={this.clearBoard}> Clear </button>
 						<button className="reset-button" onClick={this.undoLast}> Undo </button>
 					</div>

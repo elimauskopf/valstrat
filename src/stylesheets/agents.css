@@ -17,6 +17,34 @@
 	text-decoration: underline;
 }
 
+.grid-item-last {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.reset-icon-button {
+	grid-column-start: -1;
+	grid-column-end: -3;
+	height: 40px;
+	width: 70px;
+	border: 3px solid #aaa;
+	padding-bottom: 1em;
+	margin-top: 1em;
+	text-align: center;
+	font-size: 1em;
+	line-height: 35px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 500;
+	border-radius: 15%
+	
+}
+
+.reset-icon-button:hover {
+	border-color: white;
+}
+
 .icons {
 	width: 2.5em;
 	height: 2.5em;

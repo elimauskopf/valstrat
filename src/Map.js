@@ -3,7 +3,7 @@ import split from './images/SplitEmpty.png'
 import bind from './images/bindEmpty.png'
 import haven from './images/havenEmpty.png'
 import './stylesheets/map.css';
-import CanvasDraw from 'react-canvas-draw'
+import CanvasDraw from './canvas/index'
 
 export default class Map extends React.Component {
 	constructor(props) {
@@ -14,7 +14,9 @@ export default class Map extends React.Component {
 			brushRadius: 5,
 			lazyRadius: 5,
 			canvasWidth: 0,
-			canvasHeight: 0
+			canvasHeight: 0,
+			erase: false,
+			eraseButtonColor: ""
 		}
 
 		this.handleSelect = this.handleSelect.bind(this)
@@ -22,6 +24,7 @@ export default class Map extends React.Component {
 		this.clearBoard = this.clearBoard.bind(this)
 		this.undoLast = this.undoLast.bind(this)
 		this.drawImage = this.drawImage.bind(this)
+		this.toggleErase = this.toggleErase.bind(this)
 	}
 
 	handleSelect(e) {
@@ -71,8 +74,11 @@ export default class Map extends React.Component {
 		} else if (e.target.className.includes("yellow")) {
 			this.setState({color: "#ffff00"})
 		} else if (e.target.className.includes("purple")) {
-			console.log("hj")
 			this.setState({color: "#800080"})
+		}
+
+		if(this.state.erase) {
+			this.toggleErase()
 		}
 	}
 
@@ -88,6 +94,14 @@ export default class Map extends React.Component {
 
 	undoLast() {
 		this.Canvas.undo()
+	}
+
+	toggleErase() {
+		if(this.state.erase) {
+			this.setState({erase: false, eraseButtonColor:"", brushRadius: 5})
+		} else {
+			this.setState({erase: true, eraseButtonColor:"Red", brushRadius: 10})
+		}
 	}
 
 	render() {
@@ -112,6 +126,7 @@ export default class Map extends React.Component {
 						brushRadius={this.state.brushRadius}
 						canvasWidth={this.state.canvasWidth}
 						canvasHeight={this.state.canvasHeight}
+						erase={this.state.erase}
 					/>
 				</div>
 				<div className="buttons"> 
@@ -119,6 +134,7 @@ export default class Map extends React.Component {
 						<button className="button green" onClick={this.colorChanger}></button>
 						<button className="button yellow" onClick={this.colorChanger}></button>
 						<button className="button purple" onClick={this.colorChanger}></button>
+						<button style={{backgroundColor: this.state.eraseButtonColor}} className="reset-button" onClick={this.toggleErase}> Erase </button>
 						<button className="reset-button" onClick={this.clearBoard}> Clear </button>
 						<button className="reset-button" onClick={this.undoLast}> Undo </button>
 					</div>

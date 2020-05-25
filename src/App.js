@@ -2,14 +2,24 @@ import React from 'react';
 import Map from './Map'
 import Icons from './Icons'
 import './stylesheets/index.css'
-import brim from './images/Brimm.png';
-import jett from './images/Jett.png';
-import cypher from './images/Cypher.png';
-import omen from './images/Omen.png';
-import phoenix from './images/Phoenix.png';
-import sova from './images/Sova.png';
-import sage from './images/Sage.png';
-import viper from './images/Viper.png';
+import brimBlue from './images/BrimBlue.png';
+import brimGreen from './images/BrimGreen.png';
+import cypherBlue from './images/CypherBlue.png';
+import cypherGreen from './images/CypherGreen.png';
+import jettBlue from './images/JettBlue.png';
+import jettGreen from './images/JettGreen.png';
+import omenBlue from './images/OmenBlue.png';
+import omenGreen from './images/OmenGreen.png';
+import phoenixBlue from './images/PhoenixBlue.png';
+import phoenixGreen from './images/PhoenixGreen.png';
+import razeBlue from './images/RazeBlue.png';
+import razeGreen from './images/RazeGreen.png';
+import sageBlue from './images/SageBlue.png';
+import sageGreen from './images/SageGreen.png';
+import sovaBlue from './images/SovaBlue.png';
+import sovaGreen from './images/SovaGreen.png';
+import viperBlue from './images/ViperBlue.png';
+import viperGreen from './images/ViperGreen.png';
 import spike from './images/spikeIcon.png'
 import smoke from './images/Valorant_Smoke.png'
 
@@ -18,13 +28,17 @@ function App() {
 
 	const agentProps = {
 		iconOrder: [
-			brim, brim, jett, jett,
-			cypher, cypher, omen, omen,
-			phoenix, phoenix, sova, sova,
-			sage, sage, viper, viper
+			brimBlue, brimGreen, 
+			jettBlue, jettGreen,
+			cypherBlue, cypherGreen, 
+			omenBlue, omenGreen,
+			phoenixBlue, phoenixGreen, 
+			razeBlue, razeGreen,
+			sovaBlue, sovaGreen,
+			sageBlue, sageGreen, 
+			viperBlue, viperGreen
 		],
-		name: "Agents",
-		agents: true
+		name: "Agents"
 	}
 
 	const iconProps = {

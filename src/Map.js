@@ -55,13 +55,13 @@ export default class Map extends React.Component {
 			})
 		} else if (window.screen.height <= 1080) {
 			this.setState({
-				canvasHeight: 800,
-				canvasWidth: 800
+				canvasHeight: 750,
+				canvasWidth: 760
 			})
 		} else {
 			this.setState({
-				canvasHeight: 1000,
-				canvasWidth: 1000
+				canvasHeight: 900,
+				canvasWidth: 900
 			})
 		}
 	}

@@ -25,6 +25,7 @@ export default class Map extends React.Component {
 		this.undoLast = this.undoLast.bind(this)
 		this.drawImage = this.drawImage.bind(this)
 		this.toggleErase = this.toggleErase.bind(this)
+		this.updateCanvasDimensions = this.updateCanvasDimensions.bind(this)
 	}
 
 	handleSelect(e) {
@@ -41,9 +42,9 @@ export default class Map extends React.Component {
 		
 	}
 
-	componentDidMount(){
-		console.log(window.innerHeight)
-		
+	updateCanvasDimensions() {
+
+			console.log(window.innerHeight)
 		if(window.innerHeight  <= 600) {
 			this.setState({
 				canvasHeight: 400,
@@ -59,12 +60,23 @@ export default class Map extends React.Component {
 				canvasHeight: 750,
 				canvasWidth: 760
 			})
-		} else {
+		} else if (window.innerHeight <= 1200) {
 			this.setState({
 				canvasHeight: 900,
 				canvasWidth: 900
 			})
+		} else {
+			this.setState({
+				canvasHeight: 1000,
+				canvasWidth: 1000
+			})
 		}
+	}
+
+	componentDidMount(){
+		console.log(window.innerHeight)
+		this.updateCanvasDimensions()
+		window.addEventListener('resize', this.updateCanvasDimensions)
 	}
 
 	colorChanger(e) {

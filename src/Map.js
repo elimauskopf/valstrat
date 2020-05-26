@@ -49,7 +49,7 @@ export default class Map extends React.Component {
 				canvasHeight: 400,
 				canvasWidth: 400
 			})
-		} else if(window.innerHeight  <= 800) {
+		} else if(window.innerHeight  <= 750) {
 			this.setState({
 				canvasHeight: 500,
 				canvasWidth: 500 

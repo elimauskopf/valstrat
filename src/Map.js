@@ -41,8 +41,8 @@ export default class Map extends React.Component {
 		
 	}
 
-	componentWillMount(){
-		console.log(window.screen.height)
+	componentDidMount(){
+		
 		if(window.screen.width  <= 812) {
 			this.setState({
 				canvasHeight: 200,

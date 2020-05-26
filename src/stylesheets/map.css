@@ -92,13 +92,15 @@
 .reset-button {
 	height: 50px;
 	width: 70px;
-	border: 3px solid #aaa;
+	border-width: 3px; 
+	border-style: solid; 
+	border-color: #aaa;
 	padding-bottom: 1em;
 	margin-top: 1em;
 	text-align: center;
 	font-size: 1em;
 	line-height: 45px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: sans-serif;
 	font-weight: 500;
 	border-radius: 15%
 	

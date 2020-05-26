@@ -42,18 +42,19 @@ export default class Map extends React.Component {
 	}
 
 	componentDidMount(){
+		console.log(window.innerHeight)
 		
-		if(window.screen.width  <= 812) {
+		if(window.innerHeight  <= 600) {
 			this.setState({
-				canvasHeight: 200,
-				canvasWidth: 200
+				canvasHeight: 300,
+				canvasWidth: 300
 			})
-		} else if(window.screen.width  <= 1024) {
+		} else if(window.innerHeight  <= 800) {
 			this.setState({
-				canvasHeight: 400,
-				canvasWidth: 400 
+				canvasHeight: 500,
+				canvasWidth: 500 
 			})
-		} else if (window.screen.height <= 1080) {
+		} else if (window.innerHeight <= 1080) {
 			this.setState({
 				canvasHeight: 750,
 				canvasWidth: 760
@@ -83,7 +84,6 @@ export default class Map extends React.Component {
 	}
 
 	clearBoard() {
-		console.log(window.screen.height)
 		this.Canvas.clear()
 	}
 

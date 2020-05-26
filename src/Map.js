@@ -127,6 +127,7 @@ export default class Map extends React.Component {
 						canvasWidth={this.state.canvasWidth}
 						canvasHeight={this.state.canvasHeight}
 						erase={this.state.erase}
+						hideInterface={true}
 					/>
 				</div>
 				<div className="buttons"> 

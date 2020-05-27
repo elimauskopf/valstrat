@@ -37,7 +37,8 @@
 	line-height: 35px;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 500;
-	border-radius: 15%
+	border-radius: 15%;
+	cursor: pointer; /* Pointer/hand icon */
 	
 }
 

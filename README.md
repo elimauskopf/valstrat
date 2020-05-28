@@ -1,4 +1,6 @@
-A Valorant strategy board created using react, react-draggable and react-canvas
+A Valorant strategy board created using create-react-app, react-draggable and react-canvas. This site is meant to be a tool for players or teams to visualize setups or playstyles by drawing on in game maps and dragging agents and icons. 
+
+Thank you to reddit user u/shutdowngg for the maps and for all those who helped with photo editing. Thanks to https://github.com/WallTack for the eraser functionality as well. 
 
 
 

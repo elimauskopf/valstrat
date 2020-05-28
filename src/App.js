@@ -2,6 +2,8 @@ import React from 'react';
 import Map from './Map'
 import Icons from './Icons'
 import './stylesheets/index.css'
+import breachBlue from './images/BreachBlue.png'
+import breachGreen from './images/BreachGreen.png'
 import brimBlue from './images/BrimBlue.png';
 import brimGreen from './images/BrimGreen.png';
 import cypherBlue from './images/CypherBlue.png';
@@ -28,6 +30,7 @@ function App() {
 
 	const agentProps = {
 		iconOrder: [
+			breachBlue, breachGreen,
 			brimBlue, brimGreen, 
 			jettBlue, jettGreen,
 			cypherBlue, cypherGreen, 

@@ -11,8 +11,8 @@ export default class Map extends React.Component {
 		this.state = {
 			map: haven,
 			color: "#ffc600",
-			brushRadius: 5,
-			lazyRadius: 5,
+			brushRadius: 4,
+			lazyRadius: 4,
 			canvasWidth: 0,
 			canvasHeight: 0,
 			erase: false,

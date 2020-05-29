@@ -11,7 +11,7 @@ export default class Map extends React.Component {
 		this.state = {
 			map: haven,
 			color: "#ffc600",
-			brushRadius: 4,
+			brushRadius: 3,
 			lazyRadius: 4,
 			canvasWidth: 0,
 			canvasHeight: 0,
@@ -130,6 +130,7 @@ export default class Map extends React.Component {
 					<CanvasDraw
 						ref={canvasDraw => (this.Canvas = canvasDraw)}
 						imgSrc={this.state.map}
+						lazyRadius={this.state.lazyRadius}
 						brushColor={this.state.color}
 						brushRadius={this.state.brushRadius}
 						canvasWidth={this.state.canvasWidth}

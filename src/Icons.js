@@ -8,31 +8,29 @@ export function setSizeHelper(size, option) {
 	// Extract width and height from state
 	let width = Number(size.width.slice(0,-2))
 	let height = Number(size.height.slice(0,-2))
+	console.log('width:', width, 'height:', height)
 
 	if (option === "plus") {
 
-		width += .1;
-		height += .1;
+		// Max size
+		if (width < 4) {
+			width += .1;
+			height += .1;
+		}
+		
 
 	} else {
 
-		// Do not let width or height get to zero
-		if (width === .1 ) {
-			return {
-				width: width + "em",
-				height: height + "em"
-			}
-		} else {
-
+		// Min size
+		if (width > 1) {
 			width -= .1;
 			height -= .1;
-
 		}
 	}
 
 	return {
-		width: width + "em",
-		height: height + "em"
+		width: (Math.round(width * 10) / 10).toFixed(1) + "em",
+		height: (Math.round(height * 10) / 10).toFixed(1) + "em"
 	}
 }
 

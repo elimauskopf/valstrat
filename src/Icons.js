@@ -8,7 +8,6 @@ export function setSizeHelper(size, option) {
 	// Extract width and height from state
 	let width = Number(size.width.slice(0,-2))
 	let height = Number(size.height.slice(0,-2))
-	console.log('width:', width, 'height:', height)
 
 	if (option === "plus") {
 

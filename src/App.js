@@ -31,38 +31,38 @@ function App() {
 	const agentProps = {
 		iconOrder: [
 			breachBlue, breachGreen,
-			brimBlue, brimGreen, 
+			brimBlue, brimGreen,
 			jettBlue, jettGreen,
-			cypherBlue, cypherGreen, 
+			cypherBlue, cypherGreen,
 			omenBlue, omenGreen,
-			phoenixBlue, phoenixGreen, 
+			phoenixBlue, phoenixGreen,
 			razeBlue, razeGreen,
 			sovaBlue, sovaGreen,
-			sageBlue, sageGreen, 
+			sageBlue, sageGreen,
 			viperBlue, viperGreen
 		],
 		name: "Agents"
 	}
 
 	const iconProps = {
-		
+
 		iconOrder: [
 			spike, smoke,
-			smoke, smoke, 
+			smoke, smoke,
 			smoke, smoke,
 			smoke, smoke
 		],
 		name: "Icons"
 	}
 
-  return (
-	<div className="flex-container">
-		<Icons {...agentProps} /> 
-		<Map />
-		<Icons {...iconProps}/>	
-	</div>
-  
-  );
+	return (
+		<div className="flex-container">
+			<h3 className="feedback"> Have feedback or want to contribute? <a href="https://www.reddit.com/user/aaverageamerican"> send me a message </a> </h3>
+			<Icons {...agentProps} />
+			<Map />
+			<Icons {...iconProps} />
+		</div>
+	);
 }
 
 export default App;

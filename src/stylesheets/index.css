@@ -18,3 +18,10 @@ code {
 	align-items: center;
 }
 
+.feedback {
+	position:absolute;
+	left:0;
+	bottom:0;
+	color: purple;
+}
+

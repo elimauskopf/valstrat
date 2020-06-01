@@ -4,6 +4,7 @@ import bind from './images/bindEmpty.png'
 import haven from './images/havenEmpty.png'
 import './stylesheets/map.css';
 import CanvasDraw from './canvas/index'
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export default class Map extends React.Component {
 	constructor(props) {
@@ -16,7 +17,9 @@ export default class Map extends React.Component {
 			canvasWidth: 0,
 			canvasHeight: 0,
 			erase: false,
-			eraseButtonColor: ""
+			eraseButtonColor: "",
+			disabled: true,
+			scale: 1
 		}
 
 		this.handleSelect = this.handleSelect.bind(this)
@@ -26,10 +29,12 @@ export default class Map extends React.Component {
 		this.drawImage = this.drawImage.bind(this)
 		this.toggleErase = this.toggleErase.bind(this)
 		this.updateCanvasDimensions = this.updateCanvasDimensions.bind(this)
+		this.toggleZoom = this.toggleZoom.bind(this)
+		this.updateScale = this.updateScale.bind(this)
 	}
 
 	handleSelect(e) {
-	
+
 		if (e.target.value === 'bind') {
 			this.setState({ map: bind })
 		} else if (e.target.value === 'split') {
@@ -42,6 +47,12 @@ export default class Map extends React.Component {
 		setTimeout(this.drawImage, 100)
 
 	}
+
+	updateScale(scale) {
+		console.log(scale)
+		this.setState({scale: scale.scale})
+	}
+
 
 
 	updateCanvasDimensions() {
@@ -117,6 +128,15 @@ export default class Map extends React.Component {
 		}
 	}
 
+	toggleZoom() {
+		if (this.state.disabled) {
+			this.setState({ disabled: false})
+		} else {
+			this.setState({ disabled: true })
+		}
+	}
+
+
 	render() {
 		return (
 			<div>
@@ -125,25 +145,36 @@ export default class Map extends React.Component {
 					<button value="haven" onClick={this.handleSelect}>Haven</button>
 					<button value="split" onClick={this.handleSelect}>Split</button>
 				</div>
-
 				<div className="map">
-					<CanvasDraw
-						ref={canvasDraw => (this.Canvas = canvasDraw)}
-						imgSrc={this.state.map}
-						lazyRadius={this.state.lazyRadius}
-						brushColor={this.state.color}
-						brushRadius={this.state.brushRadius}
-						canvasWidth={this.state.canvasWidth}
-						canvasHeight={this.state.canvasHeight}
-						erase={this.state.erase}
-						hideInterface={true}
-					/>
+					<TransformWrapper
+						options={{
+							disabled: this.state.disabled
+						}}
+						onZoomChange={this.updateScale}
+					>
+						<TransformComponent>
+							<CanvasDraw
+								ref={canvasDraw => {this.Canvas = canvasDraw}}
+								imgSrc={this.state.map}
+								lazyRadius={this.state.lazyRadius}
+								brushColor={this.state.color}
+								brushRadius={this.state.brushRadius}
+								canvasWidth={this.state.canvasWidth}
+								canvasHeight={this.state.canvasHeight}
+								erase={this.state.erase}
+								hideInterface={true}
+								scale={this.state.scale}
+				
+							/>
+						</TransformComponent>
+					</TransformWrapper>
 				</div>
 				<div className="buttons">
 					<button className="button blue" onClick={this.colorChanger}></button>
 					<button className="button green" onClick={this.colorChanger}></button>
 					<button className="button yellow" onClick={this.colorChanger}></button>
 					<button className="button purple" onClick={this.colorChanger}></button>
+					<button className="reset-button" onClick={this.toggleZoom}> Zoom </button>
 					<button style={{ backgroundColor: this.state.eraseButtonColor }} className="reset-button" onClick={this.toggleErase}> Erase </button>
 					<button className="reset-button" onClick={this.clearBoard}> Clear </button>
 					<button className="reset-button" onClick={this.undoLast}> Undo </button>

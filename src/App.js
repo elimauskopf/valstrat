@@ -57,7 +57,6 @@ function App() {
 
 	return (
 		<div className="flex-container">
-			<h3 className="feedback"> Have feedback or want to contribute? <a href="https://www.reddit.com/user/aaverageamerican"> send me a message </a> </h3>
 			<Icons {...agentProps} />
 			<Map />
 			<Icons {...iconProps} />

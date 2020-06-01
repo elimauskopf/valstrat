@@ -18,7 +18,9 @@ export default class Map extends React.Component {
 			canvasHeight: 0,
 			erase: false,
 			eraseButtonColor: "",
-			disabled: true,
+			zoomButtonColor:"",
+			zoomDisabled: true,
+			drawDisabled: false,
 			scale: 1
 		}
 
@@ -49,7 +51,6 @@ export default class Map extends React.Component {
 	}
 
 	updateScale(scale) {
-		console.log(scale)
 		this.setState({scale: scale.scale})
 	}
 
@@ -129,10 +130,17 @@ export default class Map extends React.Component {
 	}
 
 	toggleZoom() {
-		if (this.state.disabled) {
-			this.setState({ disabled: false})
+		if (this.state.zoomDisabled) {
+			this.setState({
+				zoomDisabled: false, 
+				drawDisabled: true, 
+				zoomButtonColor: "Red"
+			})
 		} else {
-			this.setState({ disabled: true })
+			this.setState({ 
+				zoomDisabled: true, 
+				drawDisabled: false,
+				zoomButtonColor: "" })
 		}
 	}
 
@@ -148,9 +156,9 @@ export default class Map extends React.Component {
 				<div className="map">
 					<TransformWrapper
 						options={{
-							disabled: this.state.disabled
+							disabled: this.state.zoomDisabled
 						}}
-						onZoomChange={this.updateScale}
+						onWheelStop={this.updateScale}
 					>
 						<TransformComponent>
 							<CanvasDraw
@@ -164,6 +172,7 @@ export default class Map extends React.Component {
 								erase={this.state.erase}
 								hideInterface={true}
 								scale={this.state.scale}
+								disabled={this.state.drawDisabled}
 				
 							/>
 						</TransformComponent>
@@ -174,7 +183,7 @@ export default class Map extends React.Component {
 					<button className="button green" onClick={this.colorChanger}></button>
 					<button className="button yellow" onClick={this.colorChanger}></button>
 					<button className="button purple" onClick={this.colorChanger}></button>
-					<button className="reset-button" onClick={this.toggleZoom}> Zoom </button>
+					<button style={{ backgroundColor: this.state.zoomButtonColor}}className="reset-button" onClick={this.toggleZoom}> Zoom </button>
 					<button style={{ backgroundColor: this.state.eraseButtonColor }} className="reset-button" onClick={this.toggleErase}> Erase </button>
 					<button className="reset-button" onClick={this.clearBoard}> Clear </button>
 					<button className="reset-button" onClick={this.undoLast}> Undo </button>

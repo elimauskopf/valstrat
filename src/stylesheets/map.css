@@ -95,6 +95,12 @@
 	
 }
 
+.size-text {
+	color: white;
+	font-size: 1.2em;
+	line-height: 10px;
+}
+
 .brush-size-button {
 	height: 2.5em;
 	width: 5em;

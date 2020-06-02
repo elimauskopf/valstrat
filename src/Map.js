@@ -62,8 +62,10 @@ export default class Map extends React.Component {
 	}
 
 	subtractBrushRadius() {
-		let newBrushRadius = this.state.brushRadius - 1
-		this.setState({brushRadius: newBrushRadius})
+		if(this.state.brushRadius > 1) {
+			let newBrushRadius = this.state.brushRadius - 1
+			this.setState({brushRadius: newBrushRadius})
+		}
 	}
 	
 
@@ -205,6 +207,7 @@ export default class Map extends React.Component {
 					<button className="button green" onClick={this.colorChanger}></button>
 					<button className="button yellow" onClick={this.colorChanger}></button>
 					<button className="button purple" onClick={this.colorChanger}></button>
+					<p className="size-text"> size: { this.state.brushRadius } </p>
 					<button className="reset-button brush-size-button" onClick={this.addBrushRadius}> brush: +</button>
 					<button className="reset-button brush-size-button" onClick={this.subtractBrushRadius}> brush: -</button>
 				</div>

@@ -73,7 +73,7 @@ export default class Map extends React.Component {
 
 	updateCanvasDimensions() {
 
-		let size = window.innerHeight - 270;
+		let size = window.innerHeight - 230;
 
 		this.setState({
 			canvasHeight: size,

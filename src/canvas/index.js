@@ -61,7 +61,8 @@ export default class extends PureComponent {
     saveData: PropTypes.string,
     immediateLoading: PropTypes.bool,
     hideInterface: PropTypes.bool,
-    erase: PropTypes.bool
+	erase: PropTypes.bool,
+	scale: PropTypes.number
   };
 
   static defaultProps = {
@@ -81,7 +82,8 @@ export default class extends PureComponent {
     saveData: "",
     immediateLoading: false,
     hideInterface: false,
-    erase: false
+	erase: false,
+	scale: 1
   };
 
   constructor(props) {
@@ -350,8 +352,8 @@ export default class extends PureComponent {
 
     // return mouse/touch position inside canvas
     return {
-      x: clientX - rect.left,
-      y: clientY - rect.top
+      x: (clientX - rect.left) / this.props.scale,
+      y: (clientY - rect.top) / this.props.scale
     };
   };
 

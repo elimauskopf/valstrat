@@ -18,7 +18,7 @@ export default class Map extends React.Component {
 			canvasHeight: 0,
 			erase: false,
 			eraseButtonColor: "",
-			zoomButtonColor:"",
+			zoomButtonColor: "",
 			zoomDisabled: true,
 			drawDisabled: false,
 			scale: 1
@@ -33,6 +33,8 @@ export default class Map extends React.Component {
 		this.updateCanvasDimensions = this.updateCanvasDimensions.bind(this)
 		this.toggleZoom = this.toggleZoom.bind(this)
 		this.updateScale = this.updateScale.bind(this)
+		this.addBrushRadius = this.addBrushRadius.bind(this)
+		this.subtractBrushRadius = this.subtractBrushRadius.bind(this)
 	}
 
 	handleSelect(e) {
@@ -51,14 +53,32 @@ export default class Map extends React.Component {
 	}
 
 	updateScale(scale) {
-		this.setState({scale: scale.scale})
+		this.setState({ scale: scale.scale })
 	}
+
+	addBrushRadius() {
+		let newBrushRadius = this.state.brushRadius + 1
+		this.setState({brushRadius: newBrushRadius})
+	}
+
+	subtractBrushRadius() {
+		let newBrushRadius = this.state.brushRadius - 1
+		this.setState({brushRadius: newBrushRadius})
+	}
+	
 
 
 
 	updateCanvasDimensions() {
 
-		if (window.innerHeight <= 600) {
+		let size = window.innerHeight - 270;
+
+		this.setState({
+			canvasHeight: size,
+			canvasWidth: size + 10
+		})
+		
+		/* if (window.innerHeight <= 600) {
 			this.setState({
 				canvasHeight: 400,
 				canvasWidth: 400
@@ -69,6 +89,7 @@ export default class Map extends React.Component {
 				canvasWidth: 500
 			})
 		} else if (window.innerHeight <= 1080) {
+			
 			this.setState({
 				canvasHeight: 750,
 				canvasWidth: 760
@@ -83,7 +104,7 @@ export default class Map extends React.Component {
 				canvasHeight: 1000,
 				canvasWidth: 1000
 			})
-		}
+		} */
 	}
 
 	componentDidMount() {
@@ -132,15 +153,16 @@ export default class Map extends React.Component {
 	toggleZoom() {
 		if (this.state.zoomDisabled) {
 			this.setState({
-				zoomDisabled: false, 
-				drawDisabled: true, 
+				zoomDisabled: false,
+				drawDisabled: true,
 				zoomButtonColor: "Red"
 			})
 		} else {
-			this.setState({ 
-				zoomDisabled: true, 
+			this.setState({
+				zoomDisabled: true,
 				drawDisabled: false,
-				zoomButtonColor: "" })
+				zoomButtonColor: ""
+			})
 		}
 	}
 
@@ -162,7 +184,7 @@ export default class Map extends React.Component {
 					>
 						<TransformComponent>
 							<CanvasDraw
-								ref={canvasDraw => {this.Canvas = canvasDraw}}
+								ref={canvasDraw => { this.Canvas = canvasDraw }}
 								imgSrc={this.state.map}
 								lazyRadius={this.state.lazyRadius}
 								brushColor={this.state.color}
@@ -173,7 +195,7 @@ export default class Map extends React.Component {
 								hideInterface={true}
 								scale={this.state.scale}
 								disabled={this.state.drawDisabled}
-				
+
 							/>
 						</TransformComponent>
 					</TransformWrapper>
@@ -183,7 +205,11 @@ export default class Map extends React.Component {
 					<button className="button green" onClick={this.colorChanger}></button>
 					<button className="button yellow" onClick={this.colorChanger}></button>
 					<button className="button purple" onClick={this.colorChanger}></button>
-					<button style={{ backgroundColor: this.state.zoomButtonColor}}className="reset-button" onClick={this.toggleZoom}> Zoom </button>
+					<button className="reset-button brush-size-button" onClick={this.addBrushRadius}> brush: +</button>
+					<button className="reset-button brush-size-button" onClick={this.subtractBrushRadius}> brush: -</button>
+				</div>
+				<div className="buttons"> 
+					<button style={{ backgroundColor: this.state.zoomButtonColor }} className="reset-button" onClick={this.toggleZoom}> Zoom </button>
 					<button style={{ backgroundColor: this.state.eraseButtonColor }} className="reset-button" onClick={this.toggleErase}> Erase </button>
 					<button className="reset-button" onClick={this.clearBoard}> Clear </button>
 					<button className="reset-button" onClick={this.undoLast}> Undo </button>

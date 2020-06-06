@@ -2,6 +2,7 @@ import React from 'react';
 import split from './images/SplitEmpty.png'
 import bind from './images/bindEmpty.png'
 import haven from './images/havenEmpty.png'
+import ascent from './images/ascent.png'
 import './stylesheets/map.css';
 import CanvasDraw from './canvas/index'
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
@@ -46,6 +47,8 @@ export default class Map extends React.Component {
 		}
 		else if (e.target.value === 'haven') {
 			this.setState({ map: haven })
+		} else if (e.target.value === "ascent") {
+			this.setState({ map: ascent })
 		}
 
 		setTimeout(this.drawImage, 100)
@@ -80,33 +83,6 @@ export default class Map extends React.Component {
 			canvasWidth: size + 10
 		})
 		
-		/* if (window.innerHeight <= 600) {
-			this.setState({
-				canvasHeight: 400,
-				canvasWidth: 400
-			})
-		} else if (window.innerHeight <= 750) {
-			this.setState({
-				canvasHeight: 500,
-				canvasWidth: 500
-			})
-		} else if (window.innerHeight <= 1080) {
-			
-			this.setState({
-				canvasHeight: 750,
-				canvasWidth: 760
-			})
-		} else if (window.innerHeight <= 1200) {
-			this.setState({
-				canvasHeight: 900,
-				canvasWidth: 900
-			})
-		} else {
-			this.setState({
-				canvasHeight: 1000,
-				canvasWidth: 1000
-			})
-		} */
 	}
 
 	componentDidMount() {
@@ -176,6 +152,7 @@ export default class Map extends React.Component {
 					<button value="bind" onClick={this.handleSelect}>Bind</button>
 					<button value="haven" onClick={this.handleSelect}>Haven</button>
 					<button value="split" onClick={this.handleSelect}>Split</button>
+					<button value="ascent" onClick={this.handleSelect}> Ascent </button>
 				</div>
 				<div className="map">
 					<TransformWrapper
@@ -216,6 +193,7 @@ export default class Map extends React.Component {
 					<button style={{ backgroundColor: this.state.eraseButtonColor }} className="reset-button" onClick={this.toggleErase}> Erase </button>
 					<button className="reset-button" onClick={this.clearBoard}> Clear </button>
 					<button className="reset-button" onClick={this.undoLast}> Undo </button>
+					<p className="size-text"> <a href="https://www.reddit.com/user/AAverageAmerican/"> Feedback </a> </p>
 				</div>
 			</div>
 

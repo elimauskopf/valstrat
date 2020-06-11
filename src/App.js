@@ -16,6 +16,8 @@ import phoenixBlue from './images/PhoenixBlue.png';
 import phoenixGreen from './images/PhoenixGreen.png';
 import razeBlue from './images/RazeBlue.png';
 import razeGreen from './images/RazeGreen.png';
+import reynaBlue from './images/ReynaBlue.png';
+import reynaGreen from './images/ReynaGreen.png';
 import sageBlue from './images/SageBlue.png';
 import sageGreen from './images/SageGreen.png';
 import sovaBlue from './images/SovaBlue.png';
@@ -24,6 +26,7 @@ import viperBlue from './images/ViperBlue.png';
 import viperGreen from './images/ViperGreen.png';
 import spike from './images/spikeIcon.png'
 import smoke from './images/Valorant_Smoke.png'
+import icewall from './images/Ice_Wall.png'
 
 
 function App() {
@@ -37,6 +40,7 @@ function App() {
 			omenBlue, omenGreen,
 			phoenixBlue, phoenixGreen,
 			razeBlue, razeGreen,
+			reynaBlue, reynaGreen,
 			sovaBlue, sovaGreen,
 			sageBlue, sageGreen,
 			viperBlue, viperGreen
@@ -50,7 +54,10 @@ function App() {
 			spike, smoke,
 			smoke, smoke,
 			smoke, smoke,
-			smoke, smoke
+			smoke, smoke,
+		],
+		iceWall: [
+			icewall, icewall
 		],
 		name: "Icons"
 	}

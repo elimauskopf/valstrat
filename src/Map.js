@@ -14,6 +14,7 @@ export default class Map extends React.Component {
 			map: haven,
 			color: "#ffc600",
 			brushRadius: 3,
+			tempBrushRadiusm: 3,
 			lazyRadius: 4,
 			canvasWidth: 0,
 			canvasHeight: 0,
@@ -122,9 +123,9 @@ export default class Map extends React.Component {
 
 	toggleErase() {
 		if (this.state.erase) {
-			this.setState({ erase: false, eraseButtonColor: "", brushRadius: 5 })
+			this.setState({ erase: false, eraseButtonColor: ""})
 		} else {
-			this.setState({ erase: true, eraseButtonColor: "Red", brushRadius: 10 })
+			this.setState({ erase: true, eraseButtonColor: "Red"})
 		}
 	}
 

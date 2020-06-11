@@ -6,8 +6,8 @@ import './stylesheets/agents.css'
 export function setSizeHelper(size, option) {
 
 	// Extract width and height from state
-	let width = Number(size.width.slice(0,-2))
-	let height = Number(size.height.slice(0,-2))
+	let width = Number(size.width.slice(0, -2))
+	let height = Number(size.height.slice(0, -2))
 
 	if (option === "plus") {
 
@@ -16,7 +16,7 @@ export function setSizeHelper(size, option) {
 			width += .1;
 			height += .1;
 		}
-		
+
 
 	} else {
 
@@ -48,24 +48,39 @@ export default function Agents(props) {
 	let [keys, setKeys] = useState(initialState)
 
 	// put icon width and height on state
-	const [size, setSize] = useState({width: '2.5em', height: '2.5em'})
-
+	const [size, setSize] = useState({ width: '2.0em', height: '2.0em' })
+	const [wallSize] = useState({ width: '2.0em', height: '1.0em' })
+	let walls;
 
 
 
 	const icons = props.iconOrder.map((agent, idx) =>
 		<Draggable nodeRef={nodeRef} key={keys[idx]}>
-			<img 
-			style={{ width: size.width, height: size.height}} 
-			ref={nodeRef} 
-			draggable="false" 
-			src={agent} 
-			alt="icon" 
-			className="icons" 
+			<img
+				style={{ width: size.width, height: size.height }}
+				ref={nodeRef}
+				draggable="false"
+				src={agent}
+				alt="icon"
+				className="icons"
 			/>
 		</Draggable>
 	)
 
+	if (props.name === "Icons") {
+	walls = props.iceWall.map((agent, idx) => 
+			<Draggable nodeRef={nodeRef} key={keys[idx]}>
+				<img
+					style={{ width: wallSize.width, height: wallSize.height }}
+					ref={nodeRef}
+					draggable="false"
+					src={agent}
+					alt="icon"
+					className="icons"
+				/>
+			</Draggable>
+		)
+	}
 
 
 
@@ -73,10 +88,11 @@ export default function Agents(props) {
 		<div className="grid-container">
 			<h2 className="grid-item-1"> {props.name} </h2>
 			{icons}
+			{walls && walls}
 			<button className="size-button" onClick={() => setSize(setSizeHelper(size, "plus"))} > Size: + </button>
 			<button className="size-button" onClick={() => setSize(setSizeHelper(size))} > Size: - </button>
 			<button className="reset-icon-button" onClick={() => setKeys(keys.map(key => key + props.iconOrder.length))} > Reset </button>
-			
+
 		</div>
 	)
 }

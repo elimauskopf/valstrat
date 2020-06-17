@@ -1,6 +1,6 @@
 import React from 'react';
 import split from './images/SplitEmpty.png'
-import bind from './images/bindEmpty.png'
+import bind from './images/bindEmpty.jpeg'
 import haven from './images/havenEmpty.png'
 import ascent from './images/ascent.png'
 import './stylesheets/map.css';

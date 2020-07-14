@@ -2,7 +2,7 @@ A Valorant strategy board created using create-react-app, react-draggable and re
 
 Thank you to reddit user u/shutdowngg for the maps and for all those who helped with photo editing. Thanks to https://github.com/WallTack for the eraser functionality as well. 
 
-
+Link: https://valstratz.herokuapp.com/
 
 ## Available Scripts
 

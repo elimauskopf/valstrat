@@ -4,9 +4,12 @@ Thank you to reddit user u/shutdowngg for the maps and for all those who helped 
 
 Link: https://valstratz.herokuapp.com/
 
-## Available Scripts
+## Instructions
 
-In the project directory, you can run:
+1. Install dependencies with npm install 
+2. Start application with: npm start
+
+In the project directory, you can run: 
 
 ### `npm start`
 
